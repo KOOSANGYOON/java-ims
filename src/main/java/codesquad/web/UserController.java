@@ -23,36 +23,6 @@ import codesquad.service.UserService;
 @Controller
 @RequestMapping("/users")
 public class UserController {
-<<<<<<< HEAD
-    private static final Logger log = LoggerFactory.getLogger(UserController.class);
-
-    @Resource(name = "userService")
-    private UserService userService;
-
-    @GetMapping("/form")
-    public String form() {
-        return "/user/forum";
-    }
-
-    @PostMapping("")
-    public String create(UserDto userDto) {
-        userService.add(userDto);
-        return "redirect:/users";
-    }
-
-    @GetMapping("/{id}/form")
-    public String updateForm(@LoginUser User loginUser, @PathVariable long id, Model model) {
-        log.debug("LoginUser : {}", loginUser);
-        model.addAttribute("user", userService.findById(loginUser, id));
-        return "/user/updateForm";
-    }
-
-    @PutMapping("/{id}")
-    public String update(@LoginUser User loginUser, @PathVariable long id, UserDto target) {
-        userService.update(loginUser, id, target);
-        return "redirect:/users";
-    }
-=======
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@Resource(name = "userService")
@@ -115,6 +85,5 @@ public class UserController {
 		userService.update(loginUser, id, loginUserDto);
 		return "redirect:/";
 	}
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 
 }

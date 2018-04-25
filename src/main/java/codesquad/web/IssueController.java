@@ -1,18 +1,5 @@
 package codesquad.web;
 
-<<<<<<< HEAD
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import codesquad.domain.Issue;
-import codesquad.domain.IssueRepository;
-=======
 import java.io.IOException;
 
 import javax.annotation.Resource;
@@ -40,15 +27,10 @@ import codesquad.security.LoginUser;
 import codesquad.service.IssueService;
 import codesquad.service.LabelService;
 import codesquad.service.UserService;
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 
 @Controller
 @RequestMapping("/issue")
 public class IssueController {
-<<<<<<< HEAD
-	@Resource
-	private IssueRepository issueRepository;
-=======
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
@@ -62,29 +44,11 @@ public class IssueController {
 	
 	@Resource(name = "labelService")
 	private LabelService labelService;
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 	
 	@GetMapping("/form")
 	public String form() {
 		return "/issue/form";
 	}
-<<<<<<< HEAD
-	
-	@PostMapping("/newIssue")
-	public String create(String subject, String comment) {
-		Issue newIssue = new Issue(subject, comment);
-		issueRepository.save(newIssue);
-		return "redirect:/";
-	}
-	
-	@GetMapping("/{id}")
-	public String create(@PathVariable Long id, Model model) {
-		Issue issue = issueRepository.findOne(id);
-		model.addAttribute(issue);
-		return "/issue/show";
-	}
-
-=======
 
 	@PostMapping("/newIssue")
 	public String create(@LoginUser User loginUser, String subject, String comment) {
@@ -167,5 +131,4 @@ public class IssueController {
 		}
 		return String.format("redirect:/issue/%d", id);
 	}
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 }

@@ -1,29 +1,5 @@
 package codesquad.domain;
 
-<<<<<<< HEAD
-import java.time.LocalDateTime;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.Size;
-
-@Entity
-public class Issue {
-	@Id
-	@GeneratedValue
-	private long id;
-	
-	@Size(min = 3, max = 100)
-    @Column(unique = false, nullable = false, length = 100)
-    private String title;
-	
-	@Size(min = 3, max = 300)
-    @Column(nullable = false, length = 300)
-    private String contents;
-	
-=======
 import java.util.List;
 
 import javax.persistence.Column;
@@ -95,17 +71,10 @@ public class Issue {
 	@JoinColumn(foreignKey = @ForeignKey(name = "issue_label"))
 	private Label label;
 
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 	private boolean deleted = false;
 	
 	public Issue() {
 	}
-<<<<<<< HEAD
-	
-	public Issue(String title, String contents) {
-		this.title = title;
-		this.contents = contents;
-=======
 
 	public Issue(String subject, String comment) {
 		this.subject = subject;
@@ -186,34 +155,21 @@ public class Issue {
 	
 	public boolean isManager(User loginUser) {
 		return this.manager.contains(loginUser);
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 	}
 	
 	public boolean isDeleted() {
 		return deleted;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	public IssueDto _toIssueDto() {
 		return new IssueDto(this.subject, this.comment, this.writer);
 	}
 
 	// === getter setter methods (behind) ===
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 	public long getId() {
 		return id;
 	}
 
-<<<<<<< HEAD
-	public String getTitle() {
-		return title;
-	}
-
-	public String getContents() {
-		return contents;
-=======
 	public String getSubject() {
 		return subject;
 	}
@@ -268,6 +224,5 @@ public class Issue {
 
 	public void setComment(String comment) {
 		this.comment = comment;
->>>>>>> 2ba5733f5080f8043e055d058b956d40ab59bea8
 	}
 }
